@@ -1,29 +1,40 @@
-'use client';
-
 import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
-      <div className="flex">
-        <Link href="/" className="btn btn-ghost text-xl">
-          TastyNotes
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold text-orange-600">
+          LOGO
         </Link>
+        <ul className="flex space-x-6">
+          <li>
+            <Link href="/" className="hover:text-orange-600">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/recipes" className="hover:text-orange-600">
+              Recipes
+            </Link>
+          </li>
+          <li>
+            <Link href="/categories" className="hover:text-orange-600">
+              Categories
+            </Link>
+          </li>
+          <li>
+            <Link href="/my-recipes" className="hover:text-orange-600">
+              My Recipes
+            </Link>
+          </li>
+          <li>
+            <Link href="/login" className="hover:text-orange-600">
+              Login
+            </Link>
+          </li>
+        </ul>
       </div>
-      <div className="flex gap-2">
-        <Link href="/recipes" className="btn btn-ghost">
-          Recipes
-        </Link>
-        <Link href="/categories" className="btn btn-ghost">
-          Categories
-        </Link>
-        <Link href="/my-recipes" className="btn btn-ghost">
-          My Recipes
-        </Link>
-        <Link href="/sign-in" className="btn btn-ghost">
-          Sign In
-        </Link>
-      </div>
-    </div>
+    </nav>
   );
 }
