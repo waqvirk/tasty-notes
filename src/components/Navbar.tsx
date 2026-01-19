@@ -1,29 +1,23 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
-      <div className="flex">
-        <Link href="/" className="btn btn-ghost text-xl">
+    <nav className="navbar">
+      <div className="logo">
+        <Link href="/">
+         
           TastyNotes
         </Link>
       </div>
-      <div className="flex gap-2">
-        <Link href="/recipes" className="btn btn-ghost">
-          Recipes
-        </Link>
-        <Link href="/categories" className="btn btn-ghost">
-          Categories
-        </Link>
-        <Link href="/my-recipes" className="btn btn-ghost">
-          My Recipes
-        </Link>
-        <Link href="/sign-in" className="btn btn-ghost">
-          Sign In
-        </Link>
+      <div className="nav-links">
+        <Link href="/recipes">Recipes</Link>
+        <Link href="/categories">Categories</Link>
+        <Link href="/my-recipes">My Recipes</Link>
+        <Link href="/sign-in">Sign In</Link>
       </div>
-    </div>
+    </nav>
   );
 }
