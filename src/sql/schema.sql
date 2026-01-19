@@ -8,5 +8,8 @@ CREATE TABLE IF NOT EXISTS recipes (
   description TEXT,
   ingredients TEXT[],
   instructions TEXT,
-  created_at TIMESTAMP DEFAULT NOW()
+  created_at TIMESTAMP DEFAULT NOW(),
+  servings INT,
+  rating INT,
+  timing INT
 );
