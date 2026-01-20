@@ -7,7 +7,7 @@ INSERT INTO recipes (
   instructions,
   servings,
   rating,
-  timing,
+  cooking_time_minutes
 ) VALUES
 (
   'Classic Pancakes',
@@ -16,7 +16,9 @@ INSERT INTO recipes (
   'Fluffy homemade pancakes.',
   ARRAY['Flour', 'Milk', 'Eggs', 'Sugar', 'Baking Powder'],
   'Mix ingredients, cook on pan until golden.',
-  
+  2,
+  4.5,
+  5
 ),
 (
   'Avocado Toast',
@@ -26,7 +28,7 @@ INSERT INTO recipes (
   ARRAY['Avocado', 'Bread', 'Salt', 'Pepper', 'Lemon Juice'],
   'Mash avocado, spread on toast, season to taste.',
   1,
-  4,
+  4.3,
   10
 ),
 (
@@ -37,7 +39,7 @@ INSERT INTO recipes (
   ARRAY['Oats', 'Water', 'Banana', 'Berries', 'Honey'],
   'Cook oats, top with sliced fruits and honey.',
   2,
-  5,
+  5.0,
   15
 ),
 (
@@ -48,7 +50,7 @@ INSERT INTO recipes (
   ARRAY['Banana', 'Spinach', 'Almond Milk', 'Granola'],
   'Blend ingredients, pour into a bowl, and top.',
   1,
-  5,
+  4.7,
   10
 ),
 (
@@ -59,9 +61,10 @@ INSERT INTO recipes (
   ARRAY['Eggs', 'English Muffins', 'Ham', 'Hollandaise Sauce'],
   'Poach eggs, assemble on muffins, drizzle sauce.',
   2,
-  5,
+  4.5,
   20
-),(
+),
+(
   'Caesar Salad',
   'Lunch',
   'https://bakerbynature.com/wp-content/uploads/2025/01/Caesar-Salad-9.jpg',
@@ -69,7 +72,7 @@ INSERT INTO recipes (
   ARRAY['Romaine Lettuce', 'Croutons', 'Parmesan Cheese', 'Caesar Dressing'],
   'Toss ingredients together and serve chilled.',
   2,
-  4,
+  4.7,
   15
 ),
 (
@@ -80,7 +83,7 @@ INSERT INTO recipes (
   ARRAY['Turkey', 'Bread', 'Lettuce', 'Tomato', 'Mayonnaise'],
   'Layer ingredients between slices of bread.',
   1,
-  4,
+  4.0,
   10
 ),
 (
@@ -91,7 +94,7 @@ INSERT INTO recipes (
   ARRAY['Quinoa', 'Chickpeas', 'Cucumber', 'Feta', 'Olive Oil'],
   'Cook quinoa, mix with other ingredients, drizzle dressing.',
   2,
-  5,
+  3.8,
   30
 ),
 (
@@ -102,7 +105,7 @@ INSERT INTO recipes (
   ARRAY['Tomatoes', 'Onion', 'Garlic', 'Basil', 'Cream'],
   'Cook tomatoes and veggies, blend until smooth.',
   4,
-  4,
+  4.1,
   25
 ),
 (
@@ -113,9 +116,10 @@ INSERT INTO recipes (
   ARRAY['Sushi Rice', 'Nori', 'Fish', 'Vegetables', 'Soy Sauce'],
   'Roll ingredients in nori and slice.',
   6,
-  5,
+  5.0,
   40
-),(
+),
+(
   'Spaghetti Carbonara',
   'Dinner',
   'https://www.allrecipes.com/thmb/CKRPG_da4wLz3j0pYv0e2jDdF6A=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/4499842-257380-AR-spaghetti-alla-carbonara-tradizionali-buckwheat-queen-4x3-eb4e48956fbd4277adcc3556e3bf6ecc.jpg',
@@ -123,7 +127,7 @@ INSERT INTO recipes (
   ARRAY['Spaghetti', 'Eggs', 'Parmesan Cheese', 'Pancetta', 'Black Pepper'],
   'Cook pasta, mix with eggs and cheese, add pancetta.',
   4,
-  5,
+  4.6,
   30
 ),
 (
@@ -134,7 +138,7 @@ INSERT INTO recipes (
   ARRAY['Salmon', 'Olive Oil', 'Lemon', 'Herbs', 'Salt'],
   'Marinate salmon, grill until cooked through.',
   2,
-  5,
+  4.4,
   25
 ),
 (
@@ -145,7 +149,7 @@ INSERT INTO recipes (
   ARRAY['Beef', 'Bell Peppers', 'Broccoli', 'Soy Sauce', 'Garlic'],
   'Stir-fry beef and veggies in a hot pan.',
   4,
-  4,
+  4.3,
   20
 ),
 (
@@ -156,7 +160,7 @@ INSERT INTO recipes (
   ARRAY['Mixed Vegetables', 'Coconut Milk', 'Curry Paste', 'Rice'],
   'Cook vegetables in coconut milk with curry paste.',
   4,
-  5,
+  5.0,
   35
 ),
 (
@@ -167,14 +171,17 @@ INSERT INTO recipes (
   ARRAY['Chicken', 'Taco Shells', 'Lettuce', 'Tomato', 'Cheese'],
   'Cook chicken, fill taco shells, and top as desired.',
   3,
-  5,
+  4.2,
   15
-)
+),
 (
   'Spaghetti Aglio e Olio',
   'Dinner',
   'https://images.unsplash.com/photo-1521389508051-d7ffb5dc8b24',
   'Simple Italian pasta dish.',
   ARRAY['Spaghetti', 'Garlic', 'Olive Oil', 'Chili Flakes'],
-  'Cook pasta, sauté garlic, mix together.'
+  'Cook pasta, sauté garlic, mix together.',
+  4,
+  4.8,
+  20
 );
