@@ -7,7 +7,7 @@ export default function RecipeCard({ recipe }: { recipe: any }) {
       <div className="recipe-card">
         <div className="recipe-card-image">
           <Image
-            src={recipe.photos}            // e.g. "/spaghetti carbonara.jpg"
+            src={recipe.photos}           
             alt={recipe.title}
             width={300}
             height={200}
