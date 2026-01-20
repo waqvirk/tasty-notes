@@ -17,6 +17,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
       <div className="card-body">
         <h2 className="card-title">{recipe.title}</h2>
         <p className="text-sm opacity-70">{recipe.category}</p>
+        <p className="text-sm opacity-70">{recipe.rating}</p>
       </div>
     </div>
   );

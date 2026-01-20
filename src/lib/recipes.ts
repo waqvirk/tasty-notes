@@ -2,7 +2,7 @@ import { db } from "./db";
 
 export async function getAllRecipes() {
   const result = await db.query(
-    "SELECT id, title, category, photo FROM recipes"
+    "SELECT id, title, category, photo, rating FROM recipes"
   );
 
   console.log("DB RESULT:", result);
