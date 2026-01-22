@@ -1,22 +1,17 @@
-export const categories = [
-  {
-    name: "Breakfast",
+export const categoryMeta: Record<
+  string,
+  { image: string; description: string }
+> = {
+  breakfast: {
     image: "/breakfast.jpg",
     description: "Start your day right with delicious morning meals",
-    recipeCount: 5
   },
-  {
-    name: "Lunch",
+  lunch: {
     image: "/lunch.jpg",
     description: "Satisfying midday meals to keep you energized",
-    recipeCount: 5
   },
-  {
-    name: "Dinner",
+  dinner: {
     image: "/dinner.jpg",
     description: "Hearty evening dishes for the perfect end to your day",
-    recipeCount: 6
-  }
-];
-
-export default categories;
+}
+};
