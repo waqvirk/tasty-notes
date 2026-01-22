@@ -1,42 +1,61 @@
-export default function Home() {
-  const testRecipe = {
-    id: "1",
-    category: "Italian",
-    title: "Spaghetti Carbonara",
-    photo: "",
-    description: "Classic Italian pasta dish",
-    ingredients: ["pasta", "eggs", "bacon"],
-    steps: ["Cook pasta", "Mix eggs", "Combine"],
-    recipeId: "test-1",
-    notes: "Delicious!"
-  };
+import Link from "next/link";
+import RecipeCard from "@/components/recipeCard";
+import { getAllRecipes } from "@/lib/recipes";
+import Image from "next/image";
+
+interface Recipe {
+  id: string;
+  category: string;
+  title: string;
+  photo: string;
+  description?: string;
+}
+
+export default async function Home() {
+  const recipes: Recipe[] = (await getAllRecipes()) ?? [];
+  
+  
+  const featuredRecipes = recipes.slice(0, 6);
 
   return (
-    <main className="p-8 space-y-4">
-      <h1 className="text-3xl font-bold">Tasty Notes 📖</h1>
-      <p className="text-gray-600">Your digital cookbook for saving recipes and notes.</p>
-      
-      <button className="btn btn-accent">
-        Explore Recipes
-      </button>
+    <main>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-container">
+          {/* Left Side - Image */}
+          <div className="hero-image-side">
+            <Image
+              src="/hero-recipe.jpg"
+              alt="Featured Recipe"
+              width={700}
+              height={500}
+              priority
+            />
+          </div>
 
+          {/* Right Side - Content */}
+          <div className="hero-content-side">
+            <h1 className="hero-title">Tasty Notes 📖</h1>
+            <p className="hero-description">
+              Your digital cookbook for saving recipes and notes.
+            </p>
+            <Link href="/recipes">
+              <button className="hero-button">
+                Explore Recipes →
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Recipes Section */}
       <section className="recipe-section">
         <div className="container">
           <h2>Featured Recipes</h2>
           <div className="recipe-grid">
-            <div className="recipe-card">
-              <div className="recipe-card-image">
-                [Image]
-              </div>
-              <div className="recipe-card-content">
-                <h3>{testRecipe.title}</h3>
-                <div className="recipe-meta">
-                  <span>⏱ 30 Min</span>
-                  <span>👤 4 Servings</span>
-                  <span>⭐ 4.5</span>
-                </div>
-              </div>
-            </div>
+            {featuredRecipes.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
           </div>
         </div>
       </section>
