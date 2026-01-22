@@ -39,7 +39,7 @@ export async function getRecipeById(id: number) {
       photo
     FROM recipes
     WHERE id = $1
-  `,
+    `,
     [id]
   );
 
