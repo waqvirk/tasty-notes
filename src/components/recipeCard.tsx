@@ -6,48 +6,35 @@ type Recipe = {
   title: string;
   category: string;
   photo: string | null;
+  cooking_time_minutes: number;
+  servings: number;
+  rating: number;
 };
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
-    <div className="card bg-base-100 shadow">
-      {recipe.photo && (
-        <figure>
-          <img src={recipe.photo} alt={recipe.title} />
-        </figure>
-      )}
+    <Link href={`/recipes/${recipe.id}`}>
+      <div className="card bg-base-100 shadow hover:shadow-xl transition-shadow cursor-pointer">
+        {recipe.photo && (
+          <figure className="h-48 overflow-hidden">
+            <img 
+              src={recipe.photo} 
+              alt={recipe.title}
+              className="w-full h-full object-cover"
+            />
+          </figure>
+        )}
 
-      <div className="card-body">
-        <h2 className="card-title">{recipe.title}</h2>
-        <p className="text-sm opacity-70">{recipe.category}</p>
-        <p className="text-sm opacity-70">{recipe.rating}</p>
+        <div className="card-body">
+          <h3 className="card-title text-lg">{recipe.title}</h3>
+          
+          <div className="flex gap-3 text-sm opacity-70 mt-2">
+            <span>⏱ {recipe.cooking_time_minutes} min</span>
+            <span>👥 {recipe.servings}</span>
+            <span>⭐ {recipe.rating}</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
-
-// export default function RecipeCard({ recipe }: { recipe: any }) {
-//   return (
-//     <Link href={`/recipes/${recipe.id}`}>
-//       <div className="recipe-card">
-//         <div className="recipe-card-image">
-//           <Image
-//             src={recipe.photos}           
-//             alt={recipe.title}
-//             width={300}
-//             height={200}
-//             style={{ objectFit: "cover" }}
-//           />
-//         </div>
-
-//         <div className="recipe-card-content">
-//           <h3>{recipe.title}</h3>
-//           <div className="recipe-meta">
-//             <span>⏱ {recipe.time}</span>
-//             <span>👥 {recipe.servings}</span>
-//             <span>⭐ 4.5</span>
-//           </div>
-//         </div>
-//       </div>
-//     </Link>
-//   );

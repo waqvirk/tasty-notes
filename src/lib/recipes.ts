@@ -2,14 +2,13 @@ import { db } from "./db";
 
 export async function getAllRecipes() {
   const result = await db.query(
-    "SELECT id, title, category, photo, rating FROM recipes"
+    "SELECT id, title, category, photo, rating, cooking_time_minutes, servings FROM recipes"
   );
 
   console.log("DB RESULT:", result);
 
   return result;
 }
-
 
 
 export async function getRecipeById(id: number) {
@@ -22,7 +21,7 @@ export async function getRecipeById(id: number) {
       photo
     FROM recipes
     WHERE id = $1
-  `,
+    `,
     [id]
   );
 
