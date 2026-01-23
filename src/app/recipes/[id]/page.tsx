@@ -1,21 +1,20 @@
 import Image from "next/image";
+import { getRecipeById } from "@/lib/recipes";
+import { notFound } from "next/navigation";
 
-const testRecipe = {
-  id: "1",
-  category: "Italian",
-  title: "Spaghetti Carbonara",
-  photos: "/spaghetti carbonara.jpg",
-  description: "Classic Italian pasta dish",
-  time: "30 Min",
-  servings: "4 Portiomen",
-  steps: ["Cook pasta", "Mix eggs", "Combine!"],
-  recipeId: "test-1",
-  notes: "Delicious!"
-};
+export default async function RecipeDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const recipeId = parseInt(id);
+  
+  if (isNaN(recipeId)) {
+    notFound();
+  }
 
-export default function RecipeDetail({ params }: { params: { id: string } }) {
-  // For now using testRecipe, you can fetch by params.id later
-  const recipe = testRecipe;
+  const recipe = await getRecipeById(recipeId);
+
+  if (!recipe) {
+    notFound();
+  }
 
   return (
     <main className="p-8 space-y-4">
@@ -27,31 +26,40 @@ export default function RecipeDetail({ params }: { params: { id: string } }) {
           <div className="recipe-grid">
             <div className="recipe-card">
               <div className="recipe-card-image">
-                <Image
-                  src={recipe.photos}
-                  alt={recipe.title}
-                  width={300}
-                  height={200}
-                  style={{ objectFit: "cover" }}
-                />
+                {recipe.photo && (
+                  <Image
+                    src={recipe.photo}
+                    alt={recipe.title}
+                    width={300}
+                    height={200}
+                    style={{ objectFit: "cover" }}
+                  />
+                )}
               </div>
               <div className="recipe-card-content">
                 <h3>{recipe.title}</h3>
                 <div className="recipe-meta">
-                  <span>⏱️ {recipe.time}</span>
-                  <span>👥 {recipe.servings}</span>
-                  <span>⭐ 4.5</span>
+                  <span>⏱️ {recipe.cooking_time_minutes} Min</span>
+                  <span>👥 {recipe.servings} Portions</span>
+                  <span>⭐ {recipe.rating}</span>
                 </div>
                 <p>{recipe.description}</p>
-                <div>
-                  <h4>Steps:</h4>
-                  <ul>
-                    {recipe.steps.map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p><strong>Notes:</strong> {recipe.notes}</p>
+                {recipe.instructions && (
+                  <div>
+                    <h4>Steps:</h4>
+                    <p style={{ whiteSpace: 'pre-line' }}>{recipe.instructions}</p>
+                  </div>
+                )}
+                {recipe.ingredients && recipe.ingredients.length > 0 && (
+                  <div>
+                    <h4>Ingredients:</h4>
+                    <ul>
+                      {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           </div>
