@@ -58,3 +58,21 @@ export async function getRecipeById(id: number) {
 
   return result[0] ?? null;
 }
+export async function searchRecipesByTitle(searchTerm: string) {
+  if (!searchTerm.trim()) {
+    return [];
+  }
+
+  const result = await db.query(
+    `
+    SELECT id, title, category, photo, description
+    FROM recipes
+    WHERE LOWER(title) LIKE LOWER($1)
+    ORDER BY title
+    LIMIT 10
+    `,
+    [`%${searchTerm}%`]
+  );
+
+  return result;
+}
