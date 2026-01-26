@@ -28,9 +28,9 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
         <div className="card-body">
           <h3 className="card-title text-lg">{recipe.title}</h3>
           
-          <div className="flex gap-3 text-sm opacity-70 mt-2">
+          <div className="flex justify-between items-center text-sm opacity-70 mt-2">
             <span>⏱ {recipe.cooking_time_minutes} min</span>
-            <span>👥 {recipe.servings}</span>
+            <span>👥 {recipe.servings} portions</span>
             <span>⭐ {recipe.rating}</span>
           </div>
         </div>

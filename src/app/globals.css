@@ -384,9 +384,9 @@ body {
     align-items: center;
 }
 
-.search-icon {
+.search-icon-right {
     position: absolute;
-    left: 1rem;
+    right: 1rem;
     font-size: 1.2rem;
     color: #6b7280;
     pointer-events: none;
@@ -395,7 +395,7 @@ body {
 
 .search-input {
     width: 100%;
-    padding: 0.75rem 1rem 0.75rem 3rem;
+    padding: 0.75rem 3rem 0.75rem 1rem;
     border: 2px solid #e5e7eb;
     border-radius: 8px;
     font-size: 1rem;
@@ -410,10 +410,11 @@ body {
 
 .search-loader {
     position: absolute;
-    right: 1rem;
+    right: 3rem;
     font-size: 1.2rem;
 }
 
+/* Rest of the search styles remain the same */
 .search-results {
     position: absolute;
     top: calc(100% + 0.5rem);

@@ -78,7 +78,6 @@ export default function Navbar() {
       {shouldShowSearch && (
         <div className="search-container" ref={searchRef}>
           <div className="search-input-wrapper">
-            <span className="search-icon">🔍</span>
             <input
               type="text"
               placeholder="Search recipes..."
@@ -86,6 +85,7 @@ export default function Navbar() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
             />
+            <span className="search-icon-right">🔍</span>
             {isSearching && <span className="search-loader">⏳</span>}
           </div>
 
