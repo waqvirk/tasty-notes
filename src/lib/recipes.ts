@@ -11,7 +11,6 @@ export async function getAllRecipes() {
   return result;
 }
 
-
 export async function getCategoryCounts(): Promise<
   { name: string; recipeCount: number }[]
 > {
@@ -26,8 +25,6 @@ export async function getCategoryCounts(): Promise<
 
   return rows;
 }
-
-
 
 export async function getRecipeById(id: number) {
   console.log("🔍 Fetching recipe with ID:", id);
@@ -58,6 +55,7 @@ export async function getRecipeById(id: number) {
 
   return result[0] ?? null;
 }
+
 export async function searchRecipesByTitle(searchTerm: string) {
   if (!searchTerm.trim()) {
     return [];
@@ -72,6 +70,21 @@ export async function searchRecipesByTitle(searchTerm: string) {
     LIMIT 10
     `,
     [`%${searchTerm}%`]
+  );
+
+  return result;
+}
+
+export async function getRecipesByCategory(category: string) {
+  const result = await db.query(
+    `
+    SELECT id, title, category, photo, description, ingredients, instructions, 
+           created_at, servings, rating, cooking_time_minutes
+    FROM recipes
+    WHERE LOWER(category) = LOWER($1)
+    ORDER BY title
+    `,
+    [category]
   );
 
   return result;
