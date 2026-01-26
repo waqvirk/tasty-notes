@@ -1,4 +1,5 @@
 import { getAllRecipes, getRecipesByCategory } from "@/lib/recipes";
+import { getSavedRecipeIds } from "@/lib/cookbook";
 import RecipeCard from "@/components/recipeCard";
 
 interface Recipe {
@@ -20,6 +21,8 @@ export default async function RecipesPage({ searchParams }: RecipesPageProps) {
   const recipes: Recipe[] = category 
     ? (await getRecipesByCategory(category)) ?? []
     : (await getAllRecipes()) ?? [];
+  
+  const savedIds = await getSavedRecipeIds();
 
   console.log("RECIPES:", recipes);
   console.log("CATEGORY FILTER:", category);
@@ -42,7 +45,7 @@ export default async function RecipesPage({ searchParams }: RecipesPageProps) {
       <h1 className="text-3xl font-bold">{pageTitle}</h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
+          <RecipeCard key={recipe.id} recipe={recipe} isSaved={savedIds.includes(recipe.id)}/>
         ))}
       </div>
     </div>
