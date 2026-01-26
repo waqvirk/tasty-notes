@@ -11,27 +11,24 @@ interface CategoryCardProps {
 export default function CategoryCard({ name, image, recipeCount, description }: CategoryCardProps) {
   return (
     <Link href={`/recipes?category=${name.toLowerCase()}`}>
-      <div>
-        <div className="recipe-card">
-          <div className="recipe-card-image">
-            <Image
-              src={image}
-              alt={name}
-              width={300}
-              height={200}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+      <div className="recipe-card">
+        <div className="recipe-card-image" style={{ height: "300px" }}>
+          <Image
+            src={image}
+            alt={name}
+            width={400}
+            height={300}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+        </div>
 
-          <div className="recipe-card-content">
-            <div className="recipe-meta">
-              <span>📖 {recipeCount} Recipes</span>
-            </div>
+        <div className="recipe-card-content" style={{ textAlign: "center", padding: "1.5rem" }}>
+          <h3 className="font-bold text-gray-900 text-xl mb-2">{name}</h3>
+          <p className="text-sm text-gray-600 mb-3">{description}</p>
+          <div className="recipe-meta" style={{ justifyContent: "center" }}>
+            <span>📖 {recipeCount} Recipes</span>
           </div>
         </div>
-        
-        <p className="text-sm text-gray-600 mt-3 text-center">{description}</p>
-        <h3 className="font-bold text-gray-900 text-xl mt-1 text-center">{name}</h3>
       </div>
     </Link>
   );
