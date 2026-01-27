@@ -56,12 +56,12 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ff6b6b;
+    /* color: #ff6b6b; */
 }
 
 .logo a {
     text-decoration: none;
-    color: #ff6b6b;
+    /* color: #ff6b6b; */
 }
 
 .nav-links {

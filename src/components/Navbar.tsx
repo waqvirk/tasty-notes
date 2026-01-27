@@ -68,7 +68,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">
+      <div className="logo bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 bg-clip-text text-transparent">
         <Link href="/">
           TastyNotes
         </Link>
