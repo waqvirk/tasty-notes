@@ -35,7 +35,7 @@ export default async function Home() {
 
           {/* Right Side - Content */}
           <div className="hero-content-side">
-            <h1 className="hero-title">Tasty Notes 📖</h1>
+            <h1 className="hero-title">TastyNotes</h1>
             <p className="hero-description">
               Your digital cookbook for saving recipes and notes.
             </p>

@@ -43,7 +43,7 @@ export default function RecipeNotes({ cookbookId, initialNotes }: Props) {
   };
 
   const handleDelete = async (id: number) => {
-    await deleteNote(id);
+    await deleteNote(id, cookbookId);
     setNotes(notes.filter(n => n.id !== id));
   };
 
@@ -77,7 +77,7 @@ export default function RecipeNotes({ cookbookId, initialNotes }: Props) {
             className="flex gap-4 items-start p-4 rounded-2xl bg-white shadow-sm"
           >
             {/* Number */}
-            <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 text-white font-bold flex items-center justify-center shadow">
+            <span className="shrink-0 w-10 h-10 rounded-xl bg-linear-to-br from-orange-500 to-red-500 text-white font-bold flex items-center justify-center shadow">
               {index + 1}
             </span>
 

@@ -12,6 +12,6 @@ export const categoryMeta: Record<
   },
   dinner: {
     image: "/dinner.jpg",
-    description: "Hearty evening dishes for the perfect end to your day",
+    description: "Hearty dishes for the perfect end to your day",
 }
 };
