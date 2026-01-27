@@ -43,7 +43,7 @@ export default function RecipeNotes({ cookbookId, initialNotes }: Props) {
   };
 
   const handleDelete = async (id: number) => {
-    await deleteNote(id);
+    await deleteNote(id, cookbookId);
     setNotes(notes.filter(n => n.id !== id));
   };
 

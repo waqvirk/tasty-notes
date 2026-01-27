@@ -30,7 +30,7 @@ export async function addNote(cookbookId: number, content: string) {
   const result = await db`
     INSERT INTO cookbook_notes (cookbook_id, content)
     VALUES (${cookbookId}, ${content})
-    RETURNING id, content
+    RETURNING id, content, cookbook_id
   `;
 
   return result[0];
@@ -45,9 +45,9 @@ export async function updateNote(id: number, content: string) {
   revalidatePath(`/recipes/${id}`);
 }
 
-export async function deleteNote(id: number) {
+export async function deleteNote(id: number, cookbookId: number) {
   await db`
     DELETE FROM cookbook_notes WHERE id = ${id};
   `;
-  revalidatePath(`/recipes/${id}`);
+  revalidatePath(`/recipes/${cookbookId}`);
 }
