@@ -39,105 +39,111 @@ export default async function RecipeDetail({
       <div className="max-w-6xl mx-auto space-y-12">
 
         {/* Header */}
-        <header className="text-center mb-14 sm:mb-20">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight bg-linear-to-r from-orange-600 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-6">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
             {recipe.title}
           </h1>
-          <div className="flex flex-col items-center gap-6">
-            <SaveRecipeButton recipeId={recipe.id} isSaved={saved} />
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+        </header>
+
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left Side - Image, Details, and Button */}
+          <aside className="space-y-6">
+            {/* Image */}
+            {recipe.photo && (
+              <div className="lg:sticky lg:top-12">
+                <div className="relative aspect-4/3 lg:aspect-square rounded-3xl overflow-hidden shadow-lg">
+                  <Image
+                    src={recipe.photo}
+                    alt={recipe.title}
+                    fill
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Recipe Details - Centered under image */}
+            <div className="flex flex-wrap justify-center gap-4">
               {[
                 `⏱️ ${recipe.cooking_time_minutes} min`,
                 `👥 ${recipe.servings} servings`,
-                `⭐ ${recipe.rating}/5`,
+                `⭐ ${recipe.rating}`,
               ].map((item, i) => (
                 <span
                   key={i}
-                  className="px-5 py-2 rounded-xl text-sm sm:text-base font-medium bg-gray-50 border border-gray-200 text-gray-700"
+                  className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-50 border border-gray-200 text-gray-700"
                 >
                   {item}
                 </span>
               ))}
             </div>
-          </div>
-        </header>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Image */}
-          {recipe.photo && (
-            <aside className="lg:sticky lg:top-12">
-              <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-                <Image
-                  src={recipe.photo}
-                  alt={recipe.title}
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+            {/* Save Button - Centered under details */}
+            <div className="flex justify-center">
+              <SaveRecipeButton recipeId={recipe.id} isSaved={saved} />
+            </div>
+          </aside>
+
+          {/* Right Side - Content */}
+          <section className="space-y-6">
+            
+            {/* About */}
+            {recipe.description && (
+              <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+                <h2 className="text-2xl font-bold mb-4 text-gray-900">About this recipe</h2>
+                <p className="text-base leading-relaxed text-gray-700">{recipe.description}</p>
               </div>
-            </aside>
-          )}
+            )}
 
-          {/* Content */}
-            <section className="space-y-16">
-              
-              {/* About */}
-              {recipe.description && (
-                <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-md border border-gray-200">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-4">About this recipe</h2>
-                  <p className="text-lg sm:text-xl leading-relaxed text-gray-700">{recipe.description}</p>
-                </div>
-              )}
+            {/* Ingredients */}
+            {recipe.ingredients?.length > 0 && (
+              <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+                <h2 className="text-2xl font-bold mb-6 text-gray-900">Ingredients</h2>
+                <ul className="grid sm:grid-cols-2 gap-3">
+                  {recipe.ingredients.map((ingredient: string, index: number) => (
+                    <li
+                      key={index}
+                      className="flex gap-3 items-start p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition"
+                    >
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-orange-500 text-white font-bold flex items-center justify-center text-sm">
+                        {index + 1}
+                      </span>
+                      <span className="text-gray-800 text-base leading-snug">{ingredient}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-              {/* Ingredients */}
-              {recipe.ingredients?.length > 0 && (
-                <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-md border border-gray-200">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-6">Ingredients</h2>
-                  <ul className="grid sm:grid-cols-2 gap-4">
-                    {recipe.ingredients.map((ingredient: string, index: number) => (
-                      <li
-                        key={index}
-                        className="flex gap-4 items-start p-4 rounded-2xl bg-white hover:shadow-sm transition"
+            {/* Instructions */}
+            {recipe.instructions && (
+              <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+                <h2 className="text-2xl font-bold mb-6 text-gray-900">Instructions</h2>
+                <div className="space-y-3">
+                  {recipe.instructions
+                    .split("\n")
+                    .filter(Boolean)
+                    .map((step: string, i: number) => (
+                      <div
+                        key={i}
+                        className="flex gap-3 items-start p-4 rounded-xl bg-gray-50"
                       >
-                        <span className="shrink-0 w-10 h-10 rounded-xl bg-linear-to-br from-orange-500 to-red-500 text-white font-bold flex items-center justify-center shadow group-hover:scale-110 transition">
-                          {index + 1}
-                        </span>
-                        <span className="text-gray-800 text-lg leading-snug">{ingredient}</span>
-                      </li>
+                        <span className="font-bold text-orange-600 text-base">{i + 1}.</span>
+                        <p className="text-base leading-relaxed text-gray-800">{step}</p>
+                      </div>
                     ))}
-                  </ul>
                 </div>
-              )}
+              </div>
+            )}
 
-              {/* Instructions */}
-              {recipe.instructions && (
-                <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-md border border-gray-200">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-6">Instructions</h2>
-                  <div className="space-y-4">
-                    {recipe.instructions
-                      .split("\n")
-                      .filter(Boolean)
-                      .map((step: string, i: number) => (
-                        <div
-                          key={i}
-                          className="flex gap-4 items-start p-5 rounded-2xl bg-white shadow-sm"
-                        >
-                          <span className="font-bold text-orange-600 text-lg">{i + 1}.</span>
-                          <p className="text-lg leading-relaxed text-gray-800">{step}</p>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Notes */}
-              {cookbookId && (
-                <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-md border border-gray-200">
-                  <RecipeNotes cookbookId={cookbookId} initialNotes={initialNotes} />
-                </div>
-              )}
-            </section>
+            {/* Notes */}
+            {cookbookId && (
+              <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-gray-200">
+                <RecipeNotes cookbookId={cookbookId} initialNotes={initialNotes} />
+              </div>
+            )}
+          </section>
         </div>
       </div>
     </main>

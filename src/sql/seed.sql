@@ -825,7 +825,7 @@ INSERT INTO recipes (
 (
   'French Toast',
   'Breakfast',
-  NULL,
+  'https://www.allrecipes.com/thmb/0_k2klomgU3DiTpyclXYucHtVw0=/282x188/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/ALR-recipe-100490-eggnog-french-toast-VAT-hero-01-4x3-fc5489065d584e5f98673dd931c927ee.jpg',
   'Bread soaked in egg mixture, fried until golden and topped with syrup.',
   ARRAY['Bread', 'Eggs', 'Milk', 'Cinnamon', 'Maple Syrup'],
   'Dip bread in egg-milk mixture, cook on skillet until golden, serve with syrup.',
