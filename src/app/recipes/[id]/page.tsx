@@ -49,7 +49,7 @@ export default async function RecipeDetail({
               {[
                 `⏱️ ${recipe.cooking_time_minutes} min`,
                 `👥 ${recipe.servings} servings`,
-                `⭐ ${recipe.rating}/5`,
+                `⭐ ${recipe.rating}`,
               ].map((item, i) => (
                 <span
                   key={i}
