@@ -40,7 +40,7 @@ export default async function RecipeDetail({
 
         {/* Header */}
         <header className="text-center mb-14 sm:mb-20">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight bg-linear-to-r from-orange-600 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold tracking-tight bg-linear-to-r from-orange-600 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-6">
             {recipe.title}
           </h1>
           <div className="flex flex-col items-center gap-6">
