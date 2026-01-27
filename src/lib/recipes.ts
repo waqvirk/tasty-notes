@@ -23,7 +23,7 @@ export async function getCategoryCounts(): Promise<
     ORDER BY name
   `);
 
-  return rows;
+  return rows as { name: string; recipeCount: number }[];
 }
 
 export async function getRecipeById(id: number) {
