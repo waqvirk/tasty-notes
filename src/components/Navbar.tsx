@@ -117,8 +117,7 @@ export default function Navbar() {
       <div className="nav-links">
         <Link href="/recipes">Recipes</Link>
         <Link href="/categories">Categories</Link>
-        <Link href="/my-recipes">My Recipes</Link>
-        <Link href="/sign-in">Sign In</Link>
+        <Link href="/my-recipes">Cookbook</Link>
       </div>
     </nav>
   );

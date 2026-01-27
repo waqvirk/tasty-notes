@@ -12,7 +12,7 @@ INSERT INTO recipes (
 (
   'Classic Pancakes',
   'Breakfast',
-  'https://images.unsplash.com/photo-1587738347113-1d8c36a2db9b',
+  'https://www.allrecipes.com/thmb/nPYYrGakrCU0oxVs4o0dUFu-cP4=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/21014-good-old-fashioned-pancakes-VAT-003-3x2-02-6b79447c2dfb4f3692f2db1e3f58d182.jpg',
   'Fluffy homemade pancakes.',
   ARRAY['Flour', 'Milk', 'Eggs', 'Sugar', 'Baking Powder'],
   'Mix ingredients, cook on pan until golden.',
@@ -120,7 +120,7 @@ INSERT INTO recipes (
   40
 ),
 (
-  'Spaghetti Carbonara',
+  'Spaghetti Carbonar with Eggs',
   'Dinner',
   'https://www.allrecipes.com/thmb/CKRPG_da4wLz3j0pYv0e2jDdF6A=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/4499842-257380-AR-spaghetti-alla-carbonara-tradizionali-buckwheat-queen-4x3-eb4e48956fbd4277adcc3556e3bf6ecc.jpg',
   'A classic Italian pasta dish with a creamy sauce.',
@@ -463,7 +463,7 @@ INSERT INTO recipes (
 (
   'Creamy Tomato Basil Soup',
   'Dinner',
-  NULL,
+  'https://www.allrecipes.com/thmb/OxtmbaKCzZPc6iorz1ru5KKsaLw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/13113-rich-and-creamy-tomato-basil-soup-DDMFS-4x3-e7bc78ff4c6b4f999f9e178d97466e6f.jpg',
   'Smooth tomato soup finished with cream and fresh basil.',
   ARRAY['Tomatoes', 'Onion', 'Garlic', 'Cream', 'Basil'],
   'Cook tomatoes with aromatics, blend until smooth, finish with cream and basil.',
@@ -758,6 +758,7 @@ INSERT INTO recipes (
   5
 ),
 (
+  'Fluffy Banana Pancakes',
   'Breakfast',
   'https://www.allrecipes.com/thmb/iTFhAMfs0hCdtOy-U6paSu8DRc0=/282x188/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/2143962-no-milk-no-wheat-banana-pancakes-Christina-4x3-1-7cc83181438844a7996ba5ebc6e60d1e.jpg',
   'Fluffy pancakes made with oats and ripe bananas.',
@@ -803,7 +804,7 @@ INSERT INTO recipes (
 (
   'Breakfast Burrito',
   'Breakfast',
-  NULL,
+  'https://www.allrecipes.com/thmb/62KP7AShS9_1uPWWvh8KPz2zSkg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/214583-SouthwestBreakfastBurritos-ddmfs-3x4-8401-156c7c8d657a4a5d9f3f393146fdafc3.jpg',
   'Tortilla filled with scrambled eggs, sausage, cheese and salsa.',
   ARRAY['Tortilla', 'Eggs', 'Sausage', 'Cheddar', 'Salsa'],
   'Scramble eggs with sausage, fill tortilla with eggs and cheese, roll and serve with salsa.',
@@ -825,7 +826,7 @@ INSERT INTO recipes (
 (
   'French Toast',
   'Breakfast',
-  NULL,
+  'https://www.allrecipes.com/thmb/0_k2klomgU3DiTpyclXYucHtVw0=/282x188/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/ALR-recipe-100490-eggnog-french-toast-VAT-hero-01-4x3-fc5489065d584e5f98673dd931c927ee.jpg',
   'Bread soaked in egg mixture, fried until golden and topped with syrup.',
   ARRAY['Bread', 'Eggs', 'Milk', 'Cinnamon', 'Maple Syrup'],
   'Dip bread in egg-milk mixture, cook on skillet until golden, serve with syrup.',
