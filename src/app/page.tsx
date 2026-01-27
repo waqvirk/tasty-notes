@@ -3,17 +3,19 @@ import RecipeCard from "@/components/recipeCard";
 import { getAllRecipes } from "@/lib/recipes";
 import Image from "next/image";
 
-interface Recipe {
-  id: string;
-  category: string;
-  title: string;
-  photo: string;
-  description?: string;
-}
 
 export default async function Home() {
-  const recipes: Recipe[] = (await getAllRecipes()) ?? [];
-  
+  const rawRecipes = (await getAllRecipes()) ?? [];
+
+  const recipes = rawRecipes.map((r) => ({
+    id: Number(r.id),
+    title: r.title,
+    category: r.category,
+    photo: r.photo ?? null,
+    cooking_time_minutes: r.cooking_time_minutes ?? 0,
+    servings: r.servings ?? 1,
+    rating: Number(r.rating ?? 0),
+  }));
   
   const featuredRecipes = recipes.slice(0, 6);
 
