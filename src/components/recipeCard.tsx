@@ -30,7 +30,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
           
           <div className="flex justify-between items-center text-sm opacity-70 mt-2">
             <span>⏱ {recipe.cooking_time_minutes} min</span>
-            <span>👥 {recipe.servings} portions</span>
+            <span>👥 {recipe.servings} Servings</span>
             <span>⭐ {recipe.rating}</span>
           </div>
         </div>
